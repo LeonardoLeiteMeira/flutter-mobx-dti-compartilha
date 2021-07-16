@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx_dti_compartilha/initial/initial_page.dart';
+import 'package:flutter_mobx_dti_compartilha/router/router.const.dart';
+import 'package:flutter_mobx_dti_compartilha/router/router.dart' as router;
 
 void main() {
   runApp(MyApp());
@@ -10,11 +11,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Mobx - DTI Compartilha',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: InitialPage(),
+      onGenerateRoute: router.generateRoute,
+      initialRoute: RouterConstants.INITIAL,
     );
   }
 }
