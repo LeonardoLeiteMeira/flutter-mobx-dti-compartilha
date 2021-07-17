@@ -11,8 +11,8 @@ abstract class _ConnectivityControllerBase with Store {
   @observable
   ObservableStream<ConnectivityResult> connectivityStream =
       ObservableStream(Connectivity().onConnectivityChanged);
-  final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey =
-      GlobalKey<ScaffoldMessengerState>();
+
+  final scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
 
   late List<ReactionDisposer> _disposers;
   _ConnectivityControllerBase() {
@@ -23,7 +23,7 @@ abstract class _ConnectivityControllerBase with Store {
               content: Text(result == ConnectivityResult.none
                   ? 'You\'re offline'
                   : 'You\'re online'))),
-          delay: 4000)
+          delay: 1000)
     ];
   }
 

@@ -9,16 +9,17 @@ class ConnectivityPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: controller.scaffoldMessengerKey,
-      appBar: AppBar(title: Text("Exemplo ouvindo a conexão")),
-      body: SafeArea(
-        child: Container(
-          child: Center(
-            child: Text("Handle Connectivity Status"),
+    return ScaffoldMessenger(
+        key: controller.scaffoldMessengerKey,
+        child: Scaffold(
+          appBar: AppBar(title: Text("Exemplo ouvindo a conexão")),
+          body: SafeArea(
+            child: Container(
+              child: Center(
+                child: Text("Handle Connectivity Status"),
+              ),
+            ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }
