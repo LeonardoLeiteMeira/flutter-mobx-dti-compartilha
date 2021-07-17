@@ -14,6 +14,20 @@ abstract class _FormControllerBase with Store {
   @observable
   String password = '';
 
+  late List<ReactionDisposer> _disposers;
+
+  _FormControllerBase() {
+    setupValidations();
+  }
+
+  void setupValidations() {
+    _disposers = [
+      reaction((_) => name, validateUsername),
+      reaction((_) => email, validateEmail),
+      reaction((_) => password, validatePassword)
+    ];
+  }
+
   @action
   void setUsername(String value) {
     name = value;
@@ -49,5 +63,15 @@ abstract class _FormControllerBase with Store {
   @action
   void validateEmail(String? value) {
     error.email = value == null ? null : 'Not a valid email';
+  }
+
+  void validateAll() {
+    validatePassword(password);
+    validateEmail(email);
+    validateUsername(name);
+  }
+
+  void dispose() {
+    _disposers.map((dispose) => dispose());
   }
 }
