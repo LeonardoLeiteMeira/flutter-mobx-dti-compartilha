@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx_dti_compartilha/examples/architecture/architecture.page.dart';
 import 'package:flutter_mobx_dti_compartilha/examples/connectivy/connectivity.page.dart';
+import 'package:flutter_mobx_dti_compartilha/examples/data_state/architecture.page.dart';
 import 'package:flutter_mobx_dti_compartilha/examples/form/form.page.dart';
 import 'package:flutter_mobx_dti_compartilha/initial/initial.page.dart';
 import 'package:flutter_mobx_dti_compartilha/router/router.const.dart';
