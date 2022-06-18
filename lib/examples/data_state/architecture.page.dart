@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_mobx_dti_compartilha/examples/data_state/architecture.controller.dart';
 import 'package:flutter_mobx_dti_compartilha/router/router.const.dart';
@@ -19,7 +18,7 @@ class _ArchitecturePageState extends State<ArchitecturePage> {
   @override
   initState() {
     controller.phoneListState.handleReactionState(success: (data) {
-      Navigator.of(context).pushNamed(RouterConstants.INITIAL);
+      //Navigator.of(context).pushNamed(RouterConstants.INITIAL);
     });
     super.initState();
   }
@@ -35,7 +34,8 @@ class _ArchitecturePageState extends State<ArchitecturePage> {
           IconButton(onPressed: controller.nextPage, icon: Icon(Icons.plus_one))
         ],
       ),
-      body: Container(
+      // body: Container(
+      body: SingleChildScrollView(
         child: Observer(
           //   builder: (_) => controller.phoneListState.handleState(
           //       () => Center(
@@ -57,6 +57,7 @@ class _ArchitecturePageState extends State<ArchitecturePage> {
             return Column(children: [
               ListView.builder(
                 shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: data?.length,
                 itemBuilder: (_, index) => phoneCard(data?[index]),
               ),
